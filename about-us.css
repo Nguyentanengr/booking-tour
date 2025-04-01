@@ -606,11 +606,11 @@ img {
     .avai-container {
         margin-top: 50px;
         position: relative;
-        height: 45vh;
+        height: 60vh;
         width: 100%;
         background-image: url("/assets/images/outside.jpeg");
         background-size: cover;
-        background-position: center 55%;
+        background-position: center 60%;
         background-repeat: no-repeat;
 
 
@@ -848,6 +848,7 @@ img {
                 border: none;
                 font-size: 18px;
                 padding: 10px;
+                font-family: Prompt;
             }
 
             input:focus {
