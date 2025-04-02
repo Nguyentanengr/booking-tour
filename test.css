@@ -1,0 +1,41 @@
+.empty-tour-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.empty-tour-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.empty-icon {
+    width: 80px;
+    opacity: 0.7;
+    margin-bottom: 10px;
+}
+
+.empty-text {
+    font-size: 18px;
+    color: #555;
+    font-weight: 500;
+}
+
+.explore-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.explore-btn:hover {
+    background-color: #45a049;
+}
