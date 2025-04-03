@@ -47,7 +47,7 @@
 
     .hero-container {
         position: relative;
-        z-index: -1;
+        z-index: 0;
         width: 100%;
         height: 60vh;
         background-image: url("/assets/images/travel-mountain.jpg");
@@ -63,7 +63,7 @@
         &::before {
             content: "";
             position: absolute;
-            z-index: -1;
+            z-index: 0;
             top: 0;
             left: 0;
             width: 100%;
@@ -215,11 +215,15 @@
         }
 
         .all-tour .none-tour {
+            display: none;
             margin-top: 30px;
             width: 100%;
-            display: flex;
             flex-direction: column;
             align-items: center;
+
+            &.show {
+                display: flex;
+            }
 
             .alert-container {
                 display: inline-block;
@@ -349,11 +353,427 @@
                     font-weight: 500;
                     color: #ffffff;
                 }
+            }
+        }
+
+        .all-tour .has-tour {
+            display: none;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+
+            .ticket-list {
+                width: 100%;
+                gap: 10px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .ticket-item {
+                    position: relative;
+                    margin-top: 50px;
+                    background-color: #ffffff;
+                    border-radius: 15px;
+                    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+                    width: 90%;
 
 
+                    .ticket-content {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        width: 100%;
+                        overflow-x: hidden;
+                        padding: 20px 50px;
+                    }
+
+                    .header6-text {
+                        font-size: 24px;
+                        font-weight: 600;
+                    }
+
+                    .ticket-detail {
+                        width: 100%;
+                        display: flex;
+
+                        .col1 {
+                            width: 70%;
+                        }
+
+                        .col2 {
+                            flex: 1;
+                        }
+
+                        i {
+                            display: inline-block;
+                            color: #63AB45;
+                        }
+
+                        .icon-container {
+                            height: 24px;
+                            width: 24px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                        }
+
+                        .detail-item {
+                            margin-top: 5px;
+                            display: flex;
+                            align-items: center;
+                            gap: 10px;
+                        }
+
+                        p.light-text {
+                            margin-left: 20px;
+                            font-size: 16px;
+                            color: #737373;
+                        }
+
+                        p.formal-text {
+                            font-weight: 500;
+                            font-size: 18px;
+                        }
+
+                    }
+
+                    .show-more {
+                        position: relative;
+                        margin-top: 20px;
+                        padding: 5px 20px;
+                        border-radius: 15px;
+                        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+                        cursor: pointer;
+                        display: flex;
+                        gap: 10px;
+                        align-items: center;
+                        color: #9D9D9D;
+                        font-size: 12px;
+                        transition: color 0.2s;
+
+                        &:hover {
+                            color: #505050;
+                        }
+                    }
+
+                    /* Tạo lớp giả là đường phân chia */
+
+                    .show-more.expand::after {
+                        content: "";
+                        position: absolute;
+                        top: 50%;
+                        left: 100%;
+                        border: 1px dashed rgba(0, 0, 0, 0.1);
+                        width: 50vw;
+                    }
+
+                    .show-more.expand::before {
+                        content: "";
+                        position: absolute;
+                        top: 50%;
+                        right: 100%;
+                        border: 1px dashed rgba(0, 0, 0, 0.1);
+                        width: 50vw;
+                    }
+
+                    .tour-detail-container {
+                        display: none;
+                        width: 100%;
+
+                        .schedule-detail {
+                            margin-top: 30px;
+                            width: 100%;
+                        }
+
+                        .schedule-detail .schedule-on-day {
+
+                            .title-container {
+                                display: flex;
+                                align-items: center;
+                                gap: 10px;
+                                p {
+                                    font-size: 18px;
+                                    font-weight: 500;
+                                }
+
+                                img {
+                                    width: 24px;
+                                    height: 24px;
+                                }
+                            }
+
+                            .road-map {
+                                position: relative;
+                                margin: 0 80px;
+                                margin-top: 30px;
+                                display: flex;
+                                flex-direction: column;
+                                gap: 70px;
+                
+                                .location {
+                                    display: flex;
+                                    align-items: start;
+                                    gap: 40px;
+                                    position: relative;
+
+                                    img {
+                                        width: 35px;
+                                        height: 35px;
+                                    }
+
+                                    .icon-location {
+                                        width: 70px;
+                                        height: 70px;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        border-radius: 100px;
+                                        background-color: #F5F5F5;
+                                    }
+
+                                    .activities-container {
+                                        flex: 1;
+                                        display: flex;
+                                        gap: 30px;
+                                        padding: 20px 30px;
+                                        border-radius: 15px;
+                                        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+                                    }
+
+                                    .activities-container .left {
+                                        flex: 1;
+                                        display: flex;
+                                        flex-direction: column;
+                                        gap: 10px;
+
+                                        .timestamp {
+                                            display: flex;
+                                            align-items: start;
+                                            gap: 15px;
+
+                                        }
+
+                                        .timestamp .time {
+                                            background-color: #F5F5F5;
+                                            width: 65px;
+                                            padding: 2px 0;
+                                            border-radius: 15px;
+                                            display: flex;
+                                            justify-content: center;
+                                            align-items: center;
+                                            font-weight: 700;
+                                        }
+
+                                        .timestamp .activity-name {
+                                            flex: 1;
+                                            color: #6B6B6B;
+                                            overflow: hidden;
+                                        }
+                                    }
+
+                                    .activities-container .right {
+                                        width: 160px;
+
+                                    }
+
+                                    .nav-container {
+                                        width: 100%;
+                                        display: flex;
+                                        justify-content: center;
+
+                                        .navigation {
+                                            max-width: 180px;
+                                            display: flex;
+                                            align-items: center;
+                                            justify-content: space-between;
+                                            height: 40px;
+                                            padding: 0 3px 0 20px;
+                                            background-color: #EC3C77;
+                                            color: #ffffff;
+                                            font-weight: 500;
+                                            border-radius: 100px;
+                                            gap: 10px;
+                                            cursor: pointer;
+
+                                            .icon-container {
+                                                background-color: #ffffff;
+                                                width: 35px;
+                                                height: 35px;
+                                                display: flex;
+                                                align-items: center;
+                                                justify-content: center;
+                                                border-radius: 100%;
+                                            }
+
+                                            img {
+                                                width: 26px;
+                                                height: 26px;
+                                                display: inline-block;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                .location.active {
+                                    .icon-location {
+                                        background-color: #63AB45;
+
+                                        img {
+                                            filter: brightness(0) invert(1);
+                                        }
+                                    }
+                                }
+
+                                /* Tạo đường line từ đầu đến cuối xuyên qua các location */
+
+                                &::before {
+                                    content: "";
+                                    position:absolute;
+                                    top: 0;
+                                    left: 35px;
+                                    bottom: 70px;
+                                    border: 2px dashed rgba(0, 0, 0, 0.1);;
+                                    
+                                }
+                            }
+                        }
+
+                        .rate-tour-container {
+                            position: relative;
+                            margin-top: 50px;
+                            padding-top: 25px;
+                            margin-bottom: 30px;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            width: 100%;
+
+                            .simple-btn-container {
+                                height: 40px;
+                                background-color: #F7921E;
+                                font-size: 16px;
+                            }
+
+                            .star-container {
+                                margin-top: 30px;
+                                display: flex;
+                                justify-content: center;
+                                gap: 20px;
+
+                                i {
+                                    font-size: 40px;
+                                    color: #b6b6b6;
+                                    cursor: pointer;
+                                    transition: color 0.2s;
+
+                                    &:hover {
+                                        color: #ffa600;
+                                    }
+
+                                }
+                            }
+
+                            .input-container {
+                                position: relative;
+                            }
+
+                            .simple-input {
+                                margin-top: 20px;
+                                border: 1px solid rgba(84, 84, 84, 0.2);
+                                padding: 10px 20px;
+                                height: 80px;
+                                resize: none;
+                                border-radius: 15px;
+                                font-size: 16px;
+
+
+                                &::placeholder {
+                                    color: #bbbbbb;
+                                }
+
+                            }
+
+                            .btn-send {
+                                position: absolute;
+                                top: 35px;
+                                right: -80px;
+                                height: 50px;
+                                width: 50px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                color: #ffffff;
+                                font-size: 24px;
+                                background-color: #63AB45;
+                                border-radius: 100%;
+                                box-shadow: 0px 0px 10px #4dff01aa;
+                                cursor: pointer;
+                                transition: 0.2s ease-in-out;
+
+                                &:hover {
+                                    box-shadow: 0px 0px 20px #4dff01ff;
+                                }
+
+                            }
+                        }
+
+                        /* Tạo đường phân chia */
+                        .rate-tour-container::before {
+                            content: "";
+                            position: absolute;
+                            top: 0;
+                            width: 100vw;
+                            border: 1px dashed rgba(0, 0, 0, 0.1);
+                        }
+
+                    }
+
+                    .tour-detail-container.show {
+                        display: block;
+                    }
+                }
+
+                /* Tạo phần tử giả: nổi bật nhất */
+
+                .ticket-item.being::before {
+                    content: "Đang trải nghiệm";
+                    position: absolute;
+                    top: -20px;
+                    left: 5%;
+                    height: 40px;
+                    background-color: #EC3C77;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 0px 30px;
+                    border-radius: 15px;
+                    font-size: 16px;
+                    font-weight: 500;
+                    color: #ffffff;
+                }
+
+                .ticket-item::before {
+                    content: "Đã trải nghiệm";
+                    position: absolute;
+                    top: -20px;
+                    left: 5%;
+                    height: 40px;
+                    background-color: #F2F2F2;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 0px 30px;
+                    border-radius: 15px;
+                    font-size: 16px;
+                    font-weight: 500;
+                    color: #EC3C77;
+                }
             }
 
 
+            &.show {
+                display: flex;
+            }
         }
 
         .recomment-tours .title-container {
@@ -521,7 +941,7 @@
 
 /* footer section */
 .footer-section {
-    margin-top: 80px;
+    margin-top: 3550px;
     height: 80vh;
     background-color: #1D231F;
 
